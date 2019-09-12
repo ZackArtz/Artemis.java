@@ -1,5 +1,6 @@
 import com.jagrosh.jdautilities.command.CommandClient;
 import com.jagrosh.jdautilities.command.CommandClientBuilder;
+import commands.Play;
 import commands.ServerInfo;
 import lavalink.client.io.jda.JdaLavalink;
 import net.dv8tion.jda.api.AccountType;
@@ -15,13 +16,10 @@ public class Artemis extends ListenerAdapter {
     public static void main(String[] args) throws Exception {
         JDA jda = new JDABuilder(AccountType.BOT).setToken(TOKEN).build();
 
-
-
-
-        CommandClientBuilder builder = new CommandClientBuilder().setOwnerId(Arrays.toString(botOwners))
+        CommandClientBuilder builder = new CommandClientBuilder().setOwnerId(botOwner)
                 .setPrefix(PREFIX)
                 .setHelpWord("help")
-                .addCommand(new ServerInfo());
+                .addCommands(new ServerInfo(), new Play());
 
         CommandClient client = builder.build();
 
