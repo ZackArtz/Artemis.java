@@ -17,6 +17,7 @@ import net.dv8tion.jda.api.managers.AudioManager;
 import secret.InfoUtil;
 
 
+import javax.sound.sampled.Line;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
@@ -126,7 +127,7 @@ public class Play extends Command {
                     .setMaxResults(1L)
                     .setType("video")
                     .setFields("items(id/kind,id/videoId,snippet/title,snippet/thumbnails/default/url)")
-                    .setKey("AIzaSyCBHZvzfh1j6YqykqsJrcafZBKy-ZwEhdE")
+                    .setKey(InfoUtil.G_API_KEY)
                     .execute()
                     .getItems();
 
