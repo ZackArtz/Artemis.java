@@ -6,7 +6,6 @@ import com.google.api.services.youtube.YouTube;
 import com.google.api.services.youtube.model.SearchResult;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
-import jdk.internal.jline.internal.Nullable;
 import music.PlayerManager;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.GuildVoiceState;
@@ -117,7 +116,6 @@ public class Play extends Command {
         }
     }
 
-    @Nullable
     private String searchYoutube(String input) {
         String result = null;
         try {
