@@ -22,6 +22,7 @@ public class UserLookup extends Command {
         this.aliases = new String[]{"ul"};
         this.help = "Looks up information on a given user";
         this.arguments = "[userID]";
+        this.category = new Category("Moderation");
     }
 
     @Override

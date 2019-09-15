@@ -28,6 +28,7 @@ public class Play extends Command {
         this.aliases = new String[]{"p"};
         this.arguments = "[song]";
         this.help = "Joins the VC";
+        this.category = new Category("Music");
 
         YouTube search = null;
 

@@ -13,6 +13,7 @@ public class Stop extends Command {
         this.name = "stop";
         this.aliases = new String[]{"st"};
         this.help = "Leaves the VC";
+        this.category = new Category("Music");
     }
 
     @Override

@@ -13,6 +13,7 @@ public class Skip extends Command {
         this.name = "skip";
         this.aliases = new String[]{"s"};
         this.help = "Skip a song, or 20";
+        this.category = new Category("Music");
     }
 
     @Override

@@ -2,6 +2,7 @@ import com.jagrosh.jdautilities.command.CommandClient;
 import com.jagrosh.jdautilities.command.CommandClientBuilder;
 import commands.ServerInfo;
 import commands.Uptime;
+import commands.moderation.KickCommand;
 import commands.moderation.UserLookup;
 import commands.music.*;
 import commands.owner.Shutdown;
@@ -22,7 +23,7 @@ public class Artemis extends ListenerAdapter {
         CommandClientBuilder builder = new CommandClientBuilder().setOwnerId(botOwner)
                 .setPrefix(PREFIX)
                 .setHelpWord("help")
-                .addCommands(new ServerInfo(), new Play(), new Stop(), new Queue(), new Skip(), new NowPlaying(), new Uptime(), new UserLookup(), new Shutdown());
+                .addCommands(new ServerInfo(), new Play(), new Stop(), new Queue(), new Skip(), new NowPlaying(), new Volume(), new Uptime(), new Shutdown(), new KickCommand(), new UserLookup());
 
         CommandClient client = builder.build();
         jda.addEventListener(client);

@@ -19,6 +19,7 @@ public class Queue extends Command {
         this.name = "queue";
         this.aliases = new String[]{"q"};
         this.help = "Shows a list of songs in the queue";
+        this.category = new Category("Music");
     }
 
     @Override
