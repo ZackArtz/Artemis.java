@@ -5,6 +5,7 @@ import commands.Uptime;
 import commands.moderation.KickCommand;
 import commands.moderation.UserLookup;
 import commands.music.*;
+import commands.owner.Eval;
 import commands.owner.Shutdown;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -15,6 +16,7 @@ import static secret.InfoUtil.*;
 // TODO: AUUKI, YOU FUCK DO COMMAND MANAGEMENT
 
 public class Artemis extends ListenerAdapter {
+
     public static void main(String[] args) throws Exception {
         JDA jda = new JDABuilder()
                 .setToken(TOKEN)
@@ -23,9 +25,10 @@ public class Artemis extends ListenerAdapter {
         CommandClientBuilder builder = new CommandClientBuilder().setOwnerId(botOwner)
                 .setPrefix(PREFIX)
                 .setHelpWord("help")
-                .addCommands(new ServerInfo(), new Play(), new Stop(), new Queue(), new Skip(), new NowPlaying(), new Volume(), new Uptime(), new Shutdown(), new KickCommand(), new UserLookup());
+                .addCommands(new ServerInfo(), new Play(), new Stop(), new Queue(), new Skip(), new NowPlaying(), new Volume(), new Uptime(), new Shutdown(), new KickCommand(), new UserLookup(), new Eval());
 
         CommandClient client = builder.build();
         jda.addEventListener(client);
+
     }
 }
