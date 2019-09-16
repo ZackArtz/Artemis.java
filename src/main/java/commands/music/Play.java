@@ -76,7 +76,6 @@ public class Play extends Command {
         }
 
         audioManager.openAudioConnection(voiceChannel);
-        channel.sendMessage("Joining VC!").queue();
 
         if (event.getArgs().equalsIgnoreCase("")) {
             channel.sendMessage("Please provide a song!").queue();

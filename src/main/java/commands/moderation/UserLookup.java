@@ -4,8 +4,13 @@ import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import com.jagrosh.jdautilities.doc.standard.CommandInfo;
 import com.jagrosh.jdautilities.examples.doc.Author;
+import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.entities.User;
+import secret.InfoUtil;
+import utils.EmbedUtils;
+
+import java.awt.*;
 
 /**
  *
@@ -32,6 +37,15 @@ public class UserLookup extends Command {
         User user = event.getJDA().getUserById(args[0]);
 
         assert user != null;
-        channel.sendMessage(user.getTimeCreated().toString()).queue();
+        EmbedBuilder embed = new EmbedBuilder()
+                .setTitle("Information for " + user.getName())
+                .setAuthor(user.getName())
+                .addField("Created At", user.getTimeCreated().toString(), false)
+                .addField("Is bot?", user.isBot() ? "is a bot" : "is not a bot", false)
+                .setColor(Color.CYAN)
+                .setThumbnail(user.getEffectiveAvatarUrl())
+                .setFooter(InfoUtil.CODE_NAME + " " +  InfoUtil.CODE_VERSION);
+
+        channel.sendMessage(embed.build()).queue();
     }
 }
