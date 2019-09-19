@@ -16,7 +16,6 @@ import static secret.InfoUtil.*;
 // TODO: AUUKI, YOU FUCK DO COMMAND MANAGEMENT
 
 public class Artemis extends ListenerAdapter {
-
     public static void main(String[] args) throws Exception {
         JDA jda = new JDABuilder()
                 .setToken(TOKEN)
@@ -29,6 +28,5 @@ public class Artemis extends ListenerAdapter {
 
         CommandClient client = builder.build();
         jda.addEventListener(client);
-
     }
 }

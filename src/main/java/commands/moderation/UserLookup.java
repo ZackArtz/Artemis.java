@@ -5,10 +5,10 @@ import com.jagrosh.jdautilities.command.CommandEvent;
 import com.jagrosh.jdautilities.doc.standard.CommandInfo;
 import com.jagrosh.jdautilities.examples.doc.Author;
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.entities.User;
 import secret.InfoUtil;
-import utils.EmbedUtils;
 
 import java.awt.*;
 
@@ -35,13 +35,19 @@ public class UserLookup extends Command {
         String[] args = event.getArgs().split(" ");
         TextChannel channel = (TextChannel) event.getChannel();
         User user = event.getJDA().getUserById(args[0]);
+        Member member = event.getGuild().getMemberById(args[0]);
 
         assert user != null;
+        assert member != null;
+        String[] roleList;
+
         EmbedBuilder embed = new EmbedBuilder()
                 .setTitle("Information for " + user.getName())
                 .setAuthor(user.getName())
                 .addField("Created At", user.getTimeCreated().toString(), false)
                 .addField("Is bot?", user.isBot() ? "is a bot" : "is not a bot", false)
+                .addField("Roles", member.getRoles().toString(), false)
+                .addField("Real name", user.getName() + "#" + user.getDiscriminator(), true)
                 .setColor(Color.CYAN)
                 .setThumbnail(user.getEffectiveAvatarUrl())
                 .setFooter(InfoUtil.CODE_NAME + " " +  InfoUtil.CODE_VERSION);

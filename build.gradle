@@ -23,6 +23,7 @@ dependencies {
     compile group: 'com.google.apis', name: 'google-api-services-youtube', version: 'v3-rev212-1.25.0'
     shadow 'junit:junit:3.8.2'
     implementation 'org.codehaus.groovy:groovy-all:2.4.15'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.17'
 }
 
 // Output to build/libs/shadow.jar
