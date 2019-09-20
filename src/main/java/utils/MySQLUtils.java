@@ -6,8 +6,17 @@ import com.mysql.cj.jdbc.MysqlDataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+/**
+ * This class's purpose is to make it easier to connect to the MySQL database as it's something that we'll
+ * be needing to do quite often.
+ */
+
 public class MySQLUtils {
 
+    /*
+    Declare the connection option outside of the if statement so we can call it outside of the if statement or in
+    this case, return conn.
+     */
     private Connection conn;
 
     public Connection connect() {
@@ -29,6 +38,11 @@ public class MySQLUtils {
         }
         return conn;
     }
+
+    /*
+    Here we declare the disconnect, the try-catch serves to make sure that if a error occurs it won't crash the bot but instead output to
+    the console.
+     */
 
     void disconnect() {
         if (conn != null) {

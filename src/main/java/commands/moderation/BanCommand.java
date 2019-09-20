@@ -6,6 +6,11 @@ import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.TextChannel;
 
+/**
+ * Ban a user.
+ *
+ */
+
 public class BanCommand extends Command {
     public BanCommand() {
         this.name = "ban";

@@ -5,9 +5,20 @@ import com.jagrosh.jdautilities.command.CommandEvent;
 import groovy.lang.GroovyShell;
 import net.dv8tion.jda.api.entities.TextChannel;
 
+/**
+ * Eval commands are very dangerous, it is for this reason that this bot's constructor (public Eval())
+ * has this.ownerCommand = true. This tells the command manager that this command should only be run by the owner.
+ * It doesn't show a error message, however. This is something that I will likely change when I rebuild the
+ * commandManager.
+ */
+
 public class Eval extends Command {
     private final GroovyShell engine;
     private final String imports;
+
+    /*
+    Build the constructor that we use to add the command.
+     */
 
     public Eval() {
         this.name = "eval";
@@ -40,6 +51,10 @@ public class Eval extends Command {
             return;
         }
 
+        /*
+        Try-Catch to prevent errors.
+         */
+
         try {
             engine.setProperty("args", args);
             engine.setProperty("event", event);
@@ -54,6 +69,9 @@ public class Eval extends Command {
 
             event.getChannel().sendMessage(out == null ? "Executed without error" : "```" + out.toString() + "```").queue();
         }
+        /*
+        To save time, it sends a message in chat if something goes wrong, instead of making me check the term.
+         */
         catch (Exception e) {
             event.getChannel().sendMessage(e.getMessage()).queue();
         }

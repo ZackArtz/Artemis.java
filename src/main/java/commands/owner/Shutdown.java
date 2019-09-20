@@ -6,8 +6,10 @@ import com.jagrosh.jdautilities.doc.standard.CommandInfo;
 import com.jagrosh.jdautilities.examples.doc.Author;
 
 /**
- *
  * @author zack
+ *
+ * Simple shutdown command, we get the JDA instance and call the
+ * shutdown function.
  */
 @CommandInfo(
         name = "Shutdown",

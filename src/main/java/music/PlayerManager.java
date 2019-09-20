@@ -13,6 +13,14 @@ import net.dv8tion.jda.api.entities.TextChannel;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * This class is designed to not only manage songs to play across the bot but across guilds.
+ * This is so we can have multiple people listening to music at the same time in different
+ * servers.
+ *
+ * Have fun looking around.
+ */
+
 public class PlayerManager {
     private static PlayerManager INSTANCE;
     private final AudioPlayerManager playerManager;

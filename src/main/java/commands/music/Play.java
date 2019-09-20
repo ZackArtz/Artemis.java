@@ -19,6 +19,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
+/**
+ * The job of the play command is to get arguments from the user, turn that into a link,
+ * talk to lavaplayer and connect to VC, then start playing the song.
+ */
+
 
 public class Play extends Command {
     private final YouTube youTube;
@@ -52,6 +57,10 @@ public class Play extends Command {
     @Override
     protected void execute(CommandEvent event) {
 
+        /*
+        Define Vars
+         */
+
         TextChannel channel = (TextChannel) event.getChannel();
 
         String[] args = event.getArgs().split(" ");
@@ -59,6 +68,10 @@ public class Play extends Command {
         AudioManager audioManager = event.getGuild().getAudioManager();
 
         GuildVoiceState memberVoiceState = event.getMember().getVoiceState();
+
+        /*
+        Basic If statements, checking for users being in a vc, etc.
+         */
 
         assert memberVoiceState != null;
         if (!memberVoiceState.inVoiceChannel()) {
@@ -75,14 +88,24 @@ public class Play extends Command {
             return;
         }
 
+        /*
+        Connect to the channel.
+         */
+
         audioManager.openAudioConnection(voiceChannel);
 
+        /*
+        If there isn't a song provided, tell the user to provide one.
+         */
         if (event.getArgs().equalsIgnoreCase("")) {
             channel.sendMessage("Please provide a song!").queue();
 
             return;
         }
 
+        /*
+        Begin YT search
+         */
         String input = String.join(" ", args);
 
         if (!isUrl(input)) {
@@ -103,6 +126,10 @@ public class Play extends Command {
 
         manager.getGuildMusicManager(event.getGuild()).player.setVolume(10);
     }
+
+    /*
+    These functions down here are for checking if a String is a url, and the searchYoutube one is self-explanatory.
+     */
 
     private boolean isUrl(String input) {
         try {

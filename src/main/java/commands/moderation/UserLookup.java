@@ -15,6 +15,10 @@ import java.awt.*;
 /**
  *
  * @author zack myers (zxck@zxck.codes)
+ *
+ * This command is to find info about a user, fun fact, you can see that we have both User and Member
+ * defined, this is because someone's user object and member object have different properties, such as
+ * a user object doesn't have a nickname but a member does.
  */
 @CommandInfo(
         name = "Userlookup",
@@ -39,7 +43,9 @@ public class UserLookup extends Command {
 
         assert user != null;
         assert member != null;
-        String[] roleList;
+
+        // Both of these if not found could return null, by having "assert member != null" this tells the code
+        // That in order to continue these objects must not be null
 
         EmbedBuilder embed = new EmbedBuilder()
                 .setTitle("Information for " + user.getName())
@@ -51,6 +57,8 @@ public class UserLookup extends Command {
                 .setColor(Color.CYAN)
                 .setThumbnail(user.getEffectiveAvatarUrl())
                 .setFooter(InfoUtil.CODE_NAME + " " +  InfoUtil.CODE_VERSION);
+
+        // Build a embed and send it.
 
         channel.sendMessage(embed.build()).queue();
     }

@@ -10,6 +10,21 @@ import java.awt.*;
 import java.util.Arrays;
 import java.util.Objects;
 
+/**
+ * So going through these commands you might be thinking
+ * "What does the "extends Command" mean?
+ * extends Command means what it sounds like, it extends
+ * the functionality of the Command class of the
+ * JDA-Utilities package.
+ *
+ * This command returns the server info of a given server
+ * and is a good demo of how to do a EmbedBuilder.
+ *
+ * The EmbedBuilder here is a constructor for the class and
+ * that's why I use new here to make a new instance of that
+ * constructor.
+ */
+
 public class ServerInfo extends Command {
 
     public ServerInfo() {

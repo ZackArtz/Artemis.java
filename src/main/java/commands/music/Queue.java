@@ -14,6 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
 
+/**
+ * This command is to show the queue, so we got a nice for loop in here.
+ */
+
 public class Queue extends Command {
     public Queue() {
         this.name = "queue";
@@ -24,6 +28,9 @@ public class Queue extends Command {
 
     @Override
     protected void execute(CommandEvent event) {
+        /*
+        Define Vars.
+         */
         TextChannel channel = (TextChannel) event.getChannel();
         PlayerManager playerManager = PlayerManager.getInstance();
         GuildMusicManager musicManager = playerManager.getGuildMusicManager(event.getGuild());
@@ -42,6 +49,7 @@ public class Queue extends Command {
                 .setAuthor(event.getAuthor().getName())
                 .setColor(Color.DARK_GRAY);
 
+        // Good ol' for loop here.
         for (int i = 0; i < trackCount; i++) {
             AudioTrack track = tracks.get(i);
             AudioTrackInfo info = track.getInfo();

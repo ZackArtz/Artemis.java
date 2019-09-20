@@ -6,6 +6,11 @@ import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.TextChannel;
 
+/**
+ * Kick a user.
+ * Pretty simple.
+ */
+
 public class KickCommand extends Command {
     public KickCommand() {
         this.name = "kick";

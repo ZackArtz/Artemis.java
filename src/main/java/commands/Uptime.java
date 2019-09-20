@@ -6,6 +6,12 @@ import com.jagrosh.jdautilities.command.CommandEvent;
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
 
+/**
+ * Simple command to get the uptime and return it as a message in the discord channel.
+ * Does utilize some cool formatting, and even channel.sendMessageFormat, which before
+ * I made this command I didn't know existed.
+ */
+
 public class Uptime extends Command {
     public Uptime() {
         this.name = "uptime";
