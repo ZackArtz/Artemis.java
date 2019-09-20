@@ -80,7 +80,7 @@ public class LogLookupCommand extends Command {
             ResultSet rs = stmt.executeQuery(query);
             // Create the Statement and ResultSet.
 
-            f.Openfile(filename);
+            f.openFile(filename);
             // Start writing to the file.
 
             while (rs.next()) {
@@ -128,10 +128,10 @@ public class LogLookupCommand extends Command {
     }
 
     // Here comes the createfile classe, inside here you'll find the functions we use to write the files.
-    private class createFile {
+    private static class createFile {
         private Formatter x;
 
-        public void Openfile(String filename) {
+        void openFile(String filename) {
             try {
                 x = new Formatter(filename);
             } catch (FileNotFoundException e) {
@@ -139,15 +139,15 @@ public class LogLookupCommand extends Command {
             }
         }
 
-        public void addRecords(String one, String two, String three, String four) {
+        void addRecords(String one, String two, String three, String four) {
             x.format("[%s] (%s) %s: %s \n", one, two, three, four);
         }
 
-        public void closeFile() {
+        void closeFile() {
             x.close();
         }
 
-        public void delFile(File file) {
+        void delFile(File file) {
             try {
                 if (file.delete()) {
                     System.out.println("File Deleted!");
