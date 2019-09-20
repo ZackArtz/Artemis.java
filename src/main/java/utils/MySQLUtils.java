@@ -1,34 +1,28 @@
 package utils;
 
 
+import com.mysql.cj.jdbc.MysqlDataSource;
+
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Properties;
 
 public class MySQLUtils {
 
-    private final String DATABASE_URL = "jdbc:mysql://database-1.cwwiwjxwtcnh.us-west-2.rds.amazonaws.com:3306/artemisdb";
-    private final String USERNAME = "admin";
-    private final String PASSWORD = "nc8apCseJVtQc5l8d1Ifbc3NFNNp0qufyBB";
-
     private Connection conn;
-
-    private Properties properties;
-
-    private Properties getProperties() {
-        if (properties == null) {
-            properties = new Properties();
-            properties.setProperty("user", USERNAME);
-            properties.setProperty("password", PASSWORD);
-        }
-        return properties;
-    }
 
     public Connection connect() {
         if (conn == null) {
             try {
-                conn = DriverManager.getConnection(DATABASE_URL, getProperties());
+                MysqlDataSource dataSource = new MysqlDataSource();
+                String USERNAME = "admin";
+                dataSource.setUser(USERNAME);
+                String PASSWORD = "nc8apCseJVtQc5l8d1Ifbc3NFNNp0qufyBB";
+                dataSource.setPassword(PASSWORD);
+                String DATABASE_URL = "database-1.cwwiwjxwtcnh.us-west-2.rds.amazonaws.com";
+                dataSource.setServerName(DATABASE_URL);
+                dataSource.setPort(3306);
+                dataSource.setDatabaseName("artemisdb");
+                conn = dataSource.getConnection();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -36,7 +30,7 @@ public class MySQLUtils {
         return conn;
     }
 
-    public void disconnect() {
+    void disconnect() {
         if (conn != null) {
             try {
                 conn.close();

@@ -3,6 +3,7 @@ import com.jagrosh.jdautilities.command.CommandClientBuilder;
 import commands.ServerInfo;
 import commands.Uptime;
 import commands.moderation.KickCommand;
+import commands.moderation.LogLookupCommand;
 import commands.moderation.UserLookup;
 import commands.music.*;
 import commands.owner.Eval;
@@ -10,6 +11,7 @@ import commands.owner.Shutdown;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import utils.LogToSQL;
 
 import static secret.InfoUtil.*;
 
@@ -24,9 +26,10 @@ public class Artemis extends ListenerAdapter {
         CommandClientBuilder builder = new CommandClientBuilder().setOwnerId(botOwner)
                 .setPrefix(PREFIX)
                 .setHelpWord("help")
-                .addCommands(new ServerInfo(), new Play(), new Stop(), new Queue(), new Skip(), new NowPlaying(), new Volume(), new Uptime(), new Shutdown(), new KickCommand(), new UserLookup(), new Eval());
+                .addCommands(new ServerInfo(), new Play(), new Stop(), new Queue(), new Skip(), new NowPlaying(), new Volume(), new Uptime(), new Shutdown(), new KickCommand(), new UserLookup(), new LogLookupCommand(), new Eval());
 
         CommandClient client = builder.build();
         jda.addEventListener(client);
+        jda.addEventListener(new LogToSQL());
     }
 }
