@@ -19,7 +19,7 @@ public class AudioPlayerSendHandler implements AudioSendHandler {
     /**
      * @param audioPlayer Audio player to wrap.
      */
-    public AudioPlayerSendHandler(AudioPlayer audioPlayer) {
+    AudioPlayerSendHandler(AudioPlayer audioPlayer) {
         this.audioPlayer = audioPlayer;
         this.buffer = ByteBuffer.allocate(1024);
         this.frame = new MutableAudioFrame();

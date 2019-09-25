@@ -6,7 +6,8 @@ import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Message;
 import utils.MySQLUtils;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -94,15 +95,11 @@ public class LogLookupCommand extends Command {
             // Stop writing.
 
         } catch (SQLException e) {
-            message.getAuthor().openPrivateChannel().queue((channel) -> {
-                channel.sendMessage("That failed, sorry." + e).queue();
-            });
+            message.getAuthor().openPrivateChannel().queue((channel) -> channel.sendMessage("That failed, sorry." + e).queue());
             // Tell the author if the command failed.
         }
 
-        message.getAuthor().openPrivateChannel().queue((channel) -> {
-            channel.sendFile(new File(filename)).queue();
-        });
+        message.getAuthor().openPrivateChannel().queue((channel) -> channel.sendFile(new File(filename)).queue());
 
         // DM the user their text file.
 
@@ -127,7 +124,7 @@ public class LogLookupCommand extends Command {
         return dtf.format(now);
     }
 
-    // Here comes the createfile classe, inside here you'll find the functions we use to write the files.
+    // Here comes the createfile class, inside here you'll find the functions we use to write the files.
     private static class createFile {
         private Formatter x;
 
