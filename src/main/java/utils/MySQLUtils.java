@@ -23,11 +23,11 @@ public class MySQLUtils {
         if (conn == null) {
             try {
                 MysqlDataSource dataSource = new MysqlDataSource();
-                String USERNAME = "admin";
+                String USERNAME = "zack";
                 dataSource.setUser(USERNAME);
-                String PASSWORD = "nc8apCseJVtQc5l8d1Ifbc3NFNNp0qufyBB";
+                String PASSWORD = "2hS4^Wpsq6mpY5PdLK^B";
                 dataSource.setPassword(PASSWORD);
-                String DATABASE_URL = "database-1.cwwiwjxwtcnh.us-west-2.rds.amazonaws.com";
+                String DATABASE_URL = "venus.zxck.dev";
                 dataSource.setServerName(DATABASE_URL);
                 dataSource.setPort(3306);
                 dataSource.setDatabaseName("artemisdb");
