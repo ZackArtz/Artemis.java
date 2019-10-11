@@ -29,7 +29,7 @@ public class LogLookupCommand extends Command {
     public LogLookupCommand() {
         this.name = "loglookup";
         this.aliases = new String[]{"ll"};
-        this.arguments = "[searchBy (userID, channelID, etc)";
+        this.arguments = "[searchBy (userID, channelID, etc)] [ID]";
         this.userPermissions = new Permission[]{Permission.KICK_MEMBERS};
         this.category = new Category("Moderation");
     }
