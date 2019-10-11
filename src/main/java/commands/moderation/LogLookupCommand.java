@@ -32,6 +32,7 @@ public class LogLookupCommand extends Command {
         this.arguments = "[searchBy (userID, channelID, etc)] [ID]";
         this.userPermissions = new Permission[]{Permission.KICK_MEMBERS};
         this.category = new Category("Moderation");
+        this.guildOnly = false;
     }
 
     @Override
@@ -61,8 +62,8 @@ public class LogLookupCommand extends Command {
                 break;
             }
             default:
-                query = "Unexpected value: " + args[0];
-                break;
+                message.getChannel().sendMessage("Unexpected value: " + args[0] + "try channelID, guildID, or userID").queue();
+                return;
         }
 
         /*
@@ -83,6 +84,12 @@ public class LogLookupCommand extends Command {
 
             f.openFile(filename);
             // Start writing to the file.
+
+            if (args[0].equals("guildID")) {
+                while (rs.next()) {
+                    f.addRecords2(rs.getString(7), rs.getString(8), rs.getString(4), rs.getString(3), rs.getString(5));
+                }
+            }
 
             while (rs.next()) {
                 f.addRecords(rs.getString(7), rs.getString(4), rs.getString(3), rs.getString(5));
@@ -124,7 +131,7 @@ public class LogLookupCommand extends Command {
         return dtf.format(now);
     }
 
-    // Here comes the createfile class, inside here you'll find the functions we use to write the files.
+    // Here comes the create file class, inside here you'll find the functions we use to write the files.
     private static class createFile {
         private Formatter x;
 
@@ -138,6 +145,10 @@ public class LogLookupCommand extends Command {
 
         void addRecords(String one, String two, String three, String four) {
             x.format("[%s] (%s) %s: %s \n", one, two, three, four);
+        }
+
+        void addRecords2(String one, String two, String three, String four, String five) {
+            x.format("[%s] {%s} (%s) %s: %s \n", one, two, three, four, five);
         }
 
         void closeFile() {
