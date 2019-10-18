@@ -25,7 +25,22 @@ public class Artemis extends ListenerAdapter {
         CommandClientBuilder builder = new CommandClientBuilder().setOwnerId(botOwner)
                 .setPrefix(PREFIX)
                 .setHelpWord("help")
-                .addCommands(new ServerInfo(), new Play(), new Stop(), new Queue(), new Skip(), new NowPlaying(), new Volume(), new Uptime(), new Shutdown(), new KickCommand(), new BanCommand(), new UserLookup(), new LogLookupCommand(), new Eval(), new GuildlistCommand(new EventWaiter()));
+                .addCommands(new ServerInfo(),
+                        new Play(),
+                        new Stop(),
+                        new Queue(),
+                        new Skip(),
+                        new NowPlaying(),
+                        new Volume(),
+                        new Uptime(),
+                        new Shutdown(),
+                        new KickCommand(),
+                        new BanCommand(),
+                        new UserLookup(),
+                        new LogLookupCommand(),
+                        new Eval(),
+                        new GuildlistCommand(new EventWaiter())
+                );
 
         CommandClient client = builder.build();
 
