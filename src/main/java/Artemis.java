@@ -13,7 +13,6 @@ import commands.owner.Eval;
 import commands.owner.Shutdown;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.sharding.DefaultShardManagerBuilder;
-import utils.LevelUtil;
 import utils.LogToSQL;
 
 import static secret.InfoUtil.*;
@@ -47,7 +46,7 @@ public class Artemis extends ListenerAdapter {
 
         DefaultShardManagerBuilder builder1 = new DefaultShardManagerBuilder();
         builder1.setToken(TOKEN);
-        builder1.addEventListeners(new LogToSQL(), new LevelUtil(), client);
+        builder1.addEventListeners(new LogToSQL(), client);
         builder1.build();
 
 
