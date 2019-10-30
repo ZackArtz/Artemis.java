@@ -17,9 +17,9 @@ build:
   stage: build
   script: gradle --build-cache assemble
   artifacts:
-  paths:
-    - build/libs/*.jar
-  expire_in: 1 week
+    paths:
+      - build/libs/*.jar
+    expire_in: 1 week
   cache:
     key: "$CI_COMMIT_REF_NAME"
     policy: push
