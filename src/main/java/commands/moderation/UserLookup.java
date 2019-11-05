@@ -52,7 +52,6 @@ public class UserLookup extends Command {
                 .setAuthor(user.getName())
                 .addField("Created At", user.getTimeCreated().toString(), false)
                 .addField("Is bot?", user.isBot() ? "is a bot" : "is not a bot", false)
-                .addField("Roles", member.getRoles().toString(), false)
                 .addField("Real name", user.getName() + "#" + user.getDiscriminator(), true)
                 .setColor(Color.CYAN)
                 .setThumbnail(user.getEffectiveAvatarUrl())
