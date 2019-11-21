@@ -23,6 +23,6 @@ jobs:
 
     - uses: actions/upload-artifact@v1
       with:
-        name: Artemis.java
+        name: build
         path: libs/Artemis-1.0-SNAPSHOT-all.jar
 
