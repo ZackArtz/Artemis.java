@@ -15,3 +15,14 @@ jobs:
         java-version: 11.0.5
     - name: Build with Gradle
       run: ./gradlew build
+    - uses: actions/checkout@v1
+
+    - run: mkdir -p path/to/artifact
+
+    - run: echo hello > path/to/artifact/world.txt
+
+    - uses: actions/upload-artifact@v1
+      with:
+        name: Artemis.java
+        path: build/libs/Artemis-1.0-SNAPSHOT-all.jar
+
