@@ -15,9 +15,20 @@ jobs:
         java-version: 1.8
     - name: Build with Gradle
       run: ./gradlew build
-    - name: Docker Action
-      uses: zenato/docker-action@v1.0.0
+    - uses: actions/upload-artifact@v1
       with:
-        username: zackartz
-        password: zJYYttQGiV4CrG
-        repository: zackartz/artemis
+        name: Artemis
+        path: build/libs/Artemis-1.0-SNAPSHOT-all.jar
+  dockerize:
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Build & Push to Docker Hub
+        uses: opspresso/action-docker@master
+        env:
+          USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          IMAGE_NAME: "zackartz/Artemis"
+          TAG_NAME: "v0.0.1"
+          LATEST: "true"
