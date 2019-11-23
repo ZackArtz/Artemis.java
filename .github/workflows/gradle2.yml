@@ -12,7 +12,6 @@ jobs:
     - uses: MrRamych/gradle-actions/openjdk-11@3.1
       with:
         args: shadowJar
-    - run: "mv build/libs/* ./"
     - name: Build & Push to Docker Hub
       uses: opspresso/action-docker@master
       env:
