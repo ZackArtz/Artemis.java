@@ -21,11 +21,14 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      - uses: actions/download-artifact@v1
+        with:
+          name: Artemis
       - name: Build & Push to Docker Hub
         uses: opspresso/action-docker@master
         env:
           USERNAME: ${{ secrets.DOCKER_USERNAME }}
           PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-          IMAGE_NAME: "zackartz/Artemis"
+          IMAGE_NAME: "zackartz/artemis"
           TAG_NAME: "v0.0.1"
           LATEST: "true"
