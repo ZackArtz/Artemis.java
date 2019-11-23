@@ -27,15 +27,13 @@ dependencies {
 }
 
 // Output to build/libs/shadow.jar
-task testJar(type: Jar) {
+jar {
     manifest {
         attributes 'Main-Class': 'Artemis'
     }
 }
 
 shadowJar {
-    manifest {
-        inheritFrom project.tasks.testJar.manifest
-    }
+    zip64 true
 }
 
