@@ -8,12 +8,7 @@ variables:
   DOCKER_HOST: tcp://localhost:2375
 
 build:
-  image: docker:19.03.1
-  services:
-    - docker:19.03.1-dind
-  before_script:
-    - docker info
-  stage: builddocker push zackartz/artemis:tagname
+  stage: build
   script:
     - docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}
     - docker build -t ${CONTAINER_IMAGE} .
