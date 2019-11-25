@@ -1,13 +1,18 @@
-image: docker:latest
+image: docker:docker:19.03.1
 
 services:
   - docker:dind
+
+before_script:
+  - docker info
 
 stages:
   - build
 
 variables:
-  CONTAINER_IMAGE: sanderknape/go-hello-world:${CI_COMMIT_SHORT_SHA}
+  CONTAINER_IMAGE: zackartz/artemis:${CI_COMMIT_SHORT_SHA}
+  DOCKER_TLS_CERTDIR: "/certs"
+  DOCKER_HOST: tcp://localhost:2376
 
 build:
   stage: build
