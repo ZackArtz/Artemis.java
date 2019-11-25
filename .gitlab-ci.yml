@@ -10,7 +10,6 @@ build:
   stage: build
   script:
     - pacman --noconfirm -Syu docker
-    - systemctl start docker
     - docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}
     - docker build -t ${CONTAINER_IMAGE} .
     - docker tag ${CONTAINER_IMAGE} ${CONTAINER_IMAGE}
