@@ -1,4 +1,4 @@
-image: docker:19.03.5-dind
+image: debian:latest
 
 stages:
   - build
@@ -9,6 +9,9 @@ variables:
 build:
   stage: build
   script:
+    - apt-get update -y
+    - apt-get upgrade -y
+    - apt-get install docker -y
     - systemctl start docker
     - docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}
     - docker build -t ${CONTAINER_IMAGE} .
