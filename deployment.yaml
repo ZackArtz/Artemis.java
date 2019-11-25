@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: artemis
+  labels:
+    app: java
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: artemis
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 33%
+  template:
+    metadata:
+      labels:
+        app: artemis
+    spec:
+      containers:
+        - name: artemis
+          image: zackartz/artemis:<VERSION>
