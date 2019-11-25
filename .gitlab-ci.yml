@@ -11,8 +11,8 @@ stages:
 
 variables:
   CONTAINER_IMAGE: zackartz/artemis:${CI_COMMIT_SHORT_SHA}
-  DOCKER_TLS_CERTDIR: "/certs"
-  DOCKER_HOST: tcp://localhost:2376
+  DOCKER_TLS_CERTDIR: ""
+  DOCKER_HOST: tcp://localhost:2375
 
 build:
   stage: build
