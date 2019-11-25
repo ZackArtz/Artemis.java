@@ -1,28 +1,18 @@
-# This is the Gradle build system for JVM applications
-# https://gradle.org/
-# https://github.com/gradle/gradle
-image: gradle:alpine
+image: docker:latest
+services:
+  - docker:dind
 
-# Disable the Gradle daemon for Continuous Integration servers as correctness
-# is usually a priority over speed in CI environments. Using a fresh
-# runtime for each build is more reliable since the runtime is completely
-# isolated from any previous builds.
+stages:
+  - build
+
 variables:
-  GRADLE_OPTS: "-Dorg.gradle.daemon=false"
-
-before_script:
-  - export GRADLE_USER_HOME=`pwd`/.gradle
+  CONTAINER_IMAGE: sanderknape/go-hello-world:${CI_COMMIT_SHORT_SHA}
 
 build:
   stage: build
-  script: gradle --build-cache shadowJar
-  artifacts:
-    paths:
-      - build/libs/*.jar
-    expire_in: 1 week
-  cache:
-    key: "$CI_COMMIT_REF_NAME"
-    policy: push
-    paths:
-      - build
-      - .gradle
+  script:
+    - docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}
+    - docker build -t ${CONTAINER_IMAGE} .
+    - docker tag ${CONTAINER_IMAGE} ${CONTAINER_IMAGE}
+    - docker tag ${CONTAINER_IMAGE} zackartz/artemis:latest
+    - docker push ${CONTAINER_IMAGE}
