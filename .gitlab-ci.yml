@@ -12,7 +12,6 @@ build:
     - apt-get update -y
     - apt-get upgrade -y
     - apt-get install docker -y
-    - systemctl start docker
     - docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}
     - docker build -t ${CONTAINER_IMAGE} .
     - docker tag ${CONTAINER_IMAGE} ${CONTAINER_IMAGE}
