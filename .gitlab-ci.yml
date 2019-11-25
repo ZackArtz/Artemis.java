@@ -27,5 +27,6 @@ deploy:
     - kubectl config set-cluster k8s --server="${SERVER}"
     - kubectl config set clusters.k8s.certificate-authority-data ${CERTIFICATE_AUTHORITY_DATA}
     - kubectl config set-credentials kubernetes-admin --token="${USER_TOKEN}"
+    - kubectl config set-context kubernetes-admin@kubernetes
     - sed -i "s/<VERSION>/${CI_COMMIT_SHORT_SHA}/g" deployment.yaml
     - kubectl apply -f deployment.yaml
