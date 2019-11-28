@@ -8,7 +8,7 @@ public class InfoUtil {
 
 
     public static final String
-            PREFIX = "%",
+            PREFIX = "$",
             TOKEN = System.getenv("token"),
             CODE_NAME = "Artemis",
             CODE_VERSION = "0.1.0-ALPHA",
