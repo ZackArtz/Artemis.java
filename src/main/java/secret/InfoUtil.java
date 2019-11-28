@@ -12,7 +12,7 @@ public class InfoUtil {
             TOKEN = System.getenv("token"),
             CODE_NAME = "Artemis",
             CODE_VERSION = "0.1.0-ALPHA",
-            G_API_KEY = "AIzaSyCBHZvzfh1j6YqykqsJrcafZBKy-ZwEhdE";
+            G_API_KEY = System.getenv("gapi");
 
     public static final String botOwner = "133314498214756352";
 }

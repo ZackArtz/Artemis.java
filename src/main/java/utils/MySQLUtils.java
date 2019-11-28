@@ -23,9 +23,9 @@ public class MySQLUtils {
         if (conn == null) {
             try {
                 MysqlDataSource dataSource = new MysqlDataSource();
-                String USERNAME = "artemis";
+                String USERNAME = System.getenv("sql_uname");
                 dataSource.setUser(USERNAME);
-                String PASSWORD = "bYP3oSqEx7sJbT";
+                String PASSWORD = System.getenv("sql_password");
                 dataSource.setPassword(PASSWORD);
                 String DATABASE_URL = "venus.zxck.dev";
                 dataSource.setServerName(DATABASE_URL);
