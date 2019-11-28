@@ -20,7 +20,7 @@ jobs:
         run: docker push zackartz/artemis
       
       - name: Save Deployment
-        run: echo ${{ secrets.UNSTABLE_DEPLOY_DATA }} | base64 -d > $GITHUB_WORKSPACE/config/deployment.yml
+        run: mkdir $GITHUB_WORKSPACE/config/ && echo ${{ secrets.UNSTABLE_DEPLOY_DATA }} | base64 -d > $GITHUB_WORKSPACE/config/deployment.yml
 
       - name: Update deployment file
         run: TAG=$(echo $GITHUB_SHA | head -c7) && sed -i 's|<IMAGE>|zackartz/artemis:'${TAG}'|' $GITHUB_WORKSPACE/config/deployment.yml
