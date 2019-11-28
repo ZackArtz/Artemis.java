@@ -9,7 +9,7 @@ public class InfoUtil {
 
     public static final String
             PREFIX = "$",
-            TOKEN = "NjIxOTE3NzA0NDA3ODc1NjE0.XbP0ZA.uf7D_tCgMfXuIrO0vtq9NtS19JE",
+            TOKEN = System.getenv("token"),
             CODE_NAME = "Artemis",
             CODE_VERSION = "0.1.0-ALPHA",
             G_API_KEY = "AIzaSyCBHZvzfh1j6YqykqsJrcafZBKy-ZwEhdE";
