@@ -22,7 +22,7 @@ public class MuteUtil {
         Role role = null;
         final MySQLUtils sqlUtils = new MySQLUtils();
 
-        if (reason.isBlank()) {
+        if (reason.isEmpty()) {
             reason = " ";
         }
 
