@@ -11,7 +11,7 @@ public class InfoUtil {
             PREFIX = "$",
             TOKEN = System.getenv("token"),
             CODE_NAME = "Artemis",
-            CODE_VERSION = "0.1.0-ALPHA",
+            CODE_VERSION = "1.0",
             G_API_KEY = System.getenv("gapi");
 
     public static final String botOwner = "133314498214756352";
