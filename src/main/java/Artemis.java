@@ -4,16 +4,14 @@ import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
 import com.jagrosh.jdautilities.examples.command.GuildlistCommand;
 import commands.ServerInfo;
 import commands.Uptime;
-import commands.moderation.BanCommand;
-import commands.moderation.KickCommand;
-import commands.moderation.LogLookupCommand;
-import commands.moderation.UserLookup;
+import commands.moderation.*;
 import commands.music.*;
 import commands.owner.Eval;
 import commands.owner.Shutdown;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.sharding.DefaultShardManagerBuilder;
 import utils.LogToSQL;
+import utils.MuteTimeCheckerUtil;
 
 import static secret.InfoUtil.*;
 
@@ -53,14 +51,15 @@ public class Artemis extends ListenerAdapter {
                         new UserLookup(),
                         new LogLookupCommand(),
                         new Eval(),
-                        new GuildlistCommand(new EventWaiter())
+                        new GuildlistCommand(new EventWaiter()),
+                        new MuteCommand()
                 );
 
         CommandClient client = builder.build();
 
         DefaultShardManagerBuilder builder1 = new DefaultShardManagerBuilder();
         builder1.setToken(TOKEN);
-        builder1.addEventListeners(new LogToSQL(), client);
+        builder1.addEventListeners(new LogToSQL(), new MuteTimeCheckerUtil(), client);
         builder1.build();
 
 

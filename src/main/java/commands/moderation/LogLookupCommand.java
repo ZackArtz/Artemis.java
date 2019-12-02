@@ -22,7 +22,7 @@ import java.util.Formatter;
  * to users) in a naming scheme that follows this
  * "exampleChannel-exampleGuild-exampleTime.txt"
  * I had problems with the time being mismatched and not being found.
- * To solve this issue, I had to set a variable to be the name, and its defined on line 42
+ * To solve this issue, I had to set a variable to be the name, and its defined on line 44
  */
 
 public class LogLookupCommand extends Command {
@@ -116,7 +116,7 @@ public class LogLookupCommand extends Command {
             System.out.println("frick");
         }
 
-        // If it breaks oh well, this waits for the file to be send before deleting it.
+        // If it breaks oh well, this waits for the file to be sent before deleting it.
 
         f.delFile(new File(filename));
         // Delete the file
