@@ -11,7 +11,7 @@ import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.entities.VoiceChannel;
 import net.dv8tion.jda.api.managers.AudioManager;
 
-class BalladsCommand extends Command {
+public class BalladsCommand extends Command {
 
     public BalladsCommand() {
         this.name = "ballads";
@@ -23,13 +23,11 @@ class BalladsCommand extends Command {
 
     @Override
     protected void execute(CommandEvent event) {
-/*
+        /*
         Define Vars
          */
 
         TextChannel channel = (TextChannel) event.getChannel();
-
-        String[] args = event.getArgs().split(" ");
 
         AudioManager audioManager = event.getGuild().getAudioManager();
 
