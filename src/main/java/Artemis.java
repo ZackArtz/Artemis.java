@@ -52,7 +52,8 @@ public class Artemis extends ListenerAdapter {
                         new LogLookupCommand(),
                         new Eval(),
                         new GuildlistCommand(new EventWaiter()),
-                        new MuteCommand()
+                        new MuteCommand(),
+                        new BalladsCommand()
                 );
 
         CommandClient client = builder.build();
