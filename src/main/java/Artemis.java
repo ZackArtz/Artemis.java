@@ -15,20 +15,6 @@ import utils.MuteTimeCheckerUtil;
 
 import static secret.InfoUtil.*;
 
-/**
- * Astro, yeah
- *
- * Server’s down, frozen code
- * That's how we already know windows here
- * My coder would prolly do it for a Louis belt
- * JS just all he know, he don't know nothin' else
- * I tried to show 'em, java
- * I tried to show 'em, java, yeah
- * Yeah, yeah, yeah
- * Gone on you with stackOverflow
- * Young LaFlame, he in java mode
- */
-
 // Main function, what gets executed when the program is run.
 
 public class Artemis extends ListenerAdapter {
