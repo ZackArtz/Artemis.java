@@ -39,6 +39,7 @@ public class Artemis extends ListenerAdapter {
                         new Eval(),
                         new GuildlistCommand(new EventWaiter()),
                         new MuteCommand(),
+                        new UnmuteCommand(),
                         new BalladsCommand()
                 );
 
