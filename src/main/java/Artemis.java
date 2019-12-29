@@ -12,6 +12,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.sharding.DefaultShardManagerBuilder;
 import utils.LogToSQL;
 import utils.MuteTimeCheckerUtil;
+import utils.TrueerUtil;
 
 import static secret.InfoUtil.*;
 
@@ -47,7 +48,7 @@ public class Artemis extends ListenerAdapter {
 
         DefaultShardManagerBuilder builder1 = new DefaultShardManagerBuilder();
         builder1.setToken(TOKEN);
-        builder1.addEventListeners(new LogToSQL(), new MuteTimeCheckerUtil(), client);
+        builder1.addEventListeners(new LogToSQL(), new MuteTimeCheckerUtil(), new TrueerUtil(), client);
         builder1.build();
 
 
