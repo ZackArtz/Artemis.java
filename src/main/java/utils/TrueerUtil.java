@@ -8,7 +8,7 @@ public class TrueerUtil extends ListenerAdapter {
     public void onMessageReceived(MessageReceivedEvent event) {
         if (!event.getMessage().getAuthor().isBot()) {
             if ((event.getGuild().getId().equals("566901455395618838")) || event.getGuild().getId().equals("609572230141182002")) {
-                if (event.getMessage().getContentRaw().toLowerCase().equals("true :lulw:")) {
+                if (event.getMessage().getContentRaw().toLowerCase().equals("true <:lulw:660717129795895307>")) {
                     event.getMessage().getChannel().sendMessage("TRUE <:LULW:660717129795895307>").queue();
                 }
             }
