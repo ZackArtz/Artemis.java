@@ -106,7 +106,7 @@ public class LogLookupCommand extends Command {
             // Tell the author if the command failed.
         }
 
-        if (!sqlUtils.connect()) {
+        if (!sqlUtils.connect().isValid()) {
             message.getAuthor().openPrivateChannel().queue((channel) -> channel.sendMessage("SQL IS NOT WORKING FUCK").queue());
         }
 
