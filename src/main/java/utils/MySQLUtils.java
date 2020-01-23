@@ -19,15 +19,15 @@ public class MySQLUtils {
      */
     private Connection conn;
 
-    public Connection connect() {
+    public boolean connect() {
         if (conn == null) {
             try {
                 MysqlDataSource dataSource = new MysqlDataSource();
                 String USERNAME = System.getenv("root");
                 dataSource.setUser(USERNAME);
-                String PASSWORD = System.getenv("peh1o0hZJB");
+                String PASSWORD = System.getenv("Af2GMpElJY");
                 dataSource.setPassword(PASSWORD);
-                String DATABASE_URL = "curved-secretary-mariadb-master.default.svc.cluster.local";
+                String DATABASE_URL = "ubiquitous-houses-mariadb.default.svc.cluster.local";
                 dataSource.setServerName(DATABASE_URL);
                 dataSource.setPort(3306);
                 dataSource.setDatabaseName("artemisdb");
