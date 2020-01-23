@@ -19,7 +19,7 @@ public class MySQLUtils {
      */
     private Connection conn;
 
-    public boolean connect() {
+    public Connection connect() {
         if (conn == null) {
             try {
                 MysqlDataSource dataSource = new MysqlDataSource();
