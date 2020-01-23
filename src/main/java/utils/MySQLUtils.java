@@ -23,11 +23,11 @@ public class MySQLUtils {
         if (conn == null) {
             try {
                 MysqlDataSource dataSource = new MysqlDataSource();
-                String USERNAME = System.getenv("sql_uname");
+                String USERNAME = System.getenv("root");
                 dataSource.setUser(USERNAME);
-                String PASSWORD = System.getenv("sql_password");
+                String PASSWORD = System.getenv("peh1o0hZJB");
                 dataSource.setPassword(PASSWORD);
-                String DATABASE_URL = "venus.zxck.dev";
+                String DATABASE_URL = "curved-secretary-mariadb-master.default.svc.cluster.local";
                 dataSource.setServerName(DATABASE_URL);
                 dataSource.setPort(3306);
                 dataSource.setDatabaseName("artemisdb");
