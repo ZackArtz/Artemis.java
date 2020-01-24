@@ -27,7 +27,7 @@ public class MySQLUtils {
                 dataSource.setUser(USERNAME);
                 String PASSWORD = System.getenv("Af2GMpElJY");
                 dataSource.setPassword(PASSWORD);
-                String DATABASE_URL = "ubiquitous-houses-mariadb.default.svc.cluster.local";
+                String DATABASE_URL = "10.128.165.89";
                 dataSource.setServerName(DATABASE_URL);
                 dataSource.setPort(3306);
                 dataSource.setDatabaseName("artemisdb");

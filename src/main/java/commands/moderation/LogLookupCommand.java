@@ -105,7 +105,7 @@ public class LogLookupCommand extends Command {
             message.getAuthor().openPrivateChannel().queue((channel) -> channel.sendMessage("That failed, sorry." + e).queue());
             // Tell the author if the command failed.
         }
-        
+
 
         message.getAuthor().openPrivateChannel().queue((channel) -> channel.sendFile(new File(filename)).queue());
 
