@@ -23,9 +23,9 @@ public class MySQLUtils {
         if (conn == null) {
             try {
                 MysqlDataSource dataSource = new MysqlDataSource();
-                String USERNAME = System.getenv("root");
+                String USERNAME = "root";
                 dataSource.setUser(USERNAME);
-                String PASSWORD = System.getenv("YEXiP9okmk");
+                String PASSWORD = "YEXiP9okmk";
                 dataSource.setPassword(PASSWORD);
                 String DATABASE_URL = "roasted-attempt-mariadb.artemis.svc.cluster.local";
                 dataSource.setServerName(DATABASE_URL);
