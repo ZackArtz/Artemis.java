@@ -7,7 +7,7 @@ To build the jar, run `gradle shadowJar`.
 If you would like to use docker, a Dockerfile is provided. For production, I use Kubernetes in turn with Docker, and you can 
 see that process on the Actions tab.
 
-To build with docker, make sure you have docker installed, then run `docker build -f Dockerfile` in the root directory.
+To build with docker, make sure you have docker installed, then run `docker build -f Dockerfile` in the root directory. DOCKER IS NOT REQUIRED.
 
 For contributions, please go to `CONTRIBUTING.md`.
 
