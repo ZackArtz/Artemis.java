@@ -51,16 +51,6 @@ public class Artemis extends ListenerAdapter {
         builder1.addEventListeners(new LogToSQL(), new MuteTimeCheckerUtil(), new TrueerUtil(), client);
         builder1.build();
 
-
-        /*
-          We use .setToken(TOKEN) here to avoid using hardcoded strings for the login.
-          More info can be found in the secret/InfoUtil.java file.
-
-          Below you can see the command manager being setup
-          TODO: Fix it so that I don't have to manually add each command to the .addCommand
-         */
-
-
         // Above we add event listeners, when something happens like a message being received, these are called.
     }
 }
