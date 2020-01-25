@@ -23,10 +23,10 @@ jobs:
         run: docker push zackartz/artemis
       
       - name: Save Deployment
-        run: mkdir $GITHUB_WORKSPACE/config/ && echo ${{ secrets.STABLE_DEPLOY_DATA }} | base64 -d > $GITHUB_WORKSPACE/config/deployment.yaml
+        run: mkdir $GITHUB_WORKSPACE/config/ && echo ${{ secrets.STABLE_DEPLOY_DATA }} | base64 -d > $GITHUB_WORKSPACE/config/deployment.yml
 
       - name: Update deployment file
-        run: TAG=$(echo $GITHUB_SHA | head -c7) && sed 's/<IMAGE>/${TAG/g' $GITHUB_WORKSPACE/config/deployment.yaml > $GITHUB_WORKSPACE/config/deployment.yml
+        run: TAG=$(echo $GITHUB_SHA | head -c7) && sed -i 's|<IMAGE>|zackartz/artemis:'${TAG}'|' $GITHUB_WORKSPACE/config/deployment.yml
 
       - name: Save kubeconfig
         run: echo ${{ secrets.KUBE_CONFIG_DATA }} | base64 -d > $GITHUB_WORKSPACE/.kubeconfig
@@ -39,4 +39,4 @@ jobs:
       - name: Verify deployment
         uses: docker://lachlanevenson/k8s-kubectl
         with:
-          args: --kubeconfig=/github/workspace/.kubeconfig rollout status deployment/artemis-server
+          args: --kubeconfig=/github/workspace/.kubeconfig rollout status deployment/artemis
