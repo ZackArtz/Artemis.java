@@ -24,6 +24,7 @@ public class Artemis extends ListenerAdapter {
         CommandClientBuilder builder = new CommandClientBuilder().setOwnerId(botOwner)
                 .setPrefix(PREFIX)
                 .setHelpWord("help")
+                .setCoOwnerIds("203938969136791552")
                 .addCommands(new ServerInfo(),
                         new Play(),
                         new Stop(),
