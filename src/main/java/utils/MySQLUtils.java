@@ -27,7 +27,7 @@ public class MySQLUtils {
                 dataSource.setUser(USERNAME);
                 String PASSWORD = "YEXiP9okmk";
                 dataSource.setPassword(PASSWORD);
-                String DATABASE_URL = "roasted-attempt-mariadb.artemis.svc.cluster.local";
+                String DATABASE_URL = "known-burst-mariadb.artemis.svc.cluster.local";
                 dataSource.setServerName(DATABASE_URL);
                 dataSource.setPort(3306);
                 dataSource.setDatabaseName("artemisdb");
